@@ -177,27 +177,31 @@ function initialTimer(){
 
 function taskEvent(){
   const parentTaskDiv = document.getElementById("task-list-div");
-  const taskListInput = document.getElementById("new-task").value;
+  const taskListInput = document.getElementById("new-task");
   
-  if(taskListInput === ""){
+  if(taskListInput.value === ""){
     alert("You must write a task!")
-  } else {
+    return
+  }
+ 
   idCount += 1;
   const newDiv = document.createElement("li"); 
-  const newTask = document.createTextNode(taskListInput);
+  const newTask = document.createTextNode(taskListInput.value);
   const taskDiv = document.getElementById("task-list-above");
   taskDiv.appendChild(newDiv);
   newDiv.appendChild(newTask);
-  // console.log(taskListInput);
-  // console.log(idCount);
-    
-  const span = document.createElement("SPAN");
+
+  const button = document.createElement("button");
   const closeSymbol = document.createTextNode(" x ");
-  span.id = "close-" + idCount;
-  span.appendChild(closeSymbol);
-  newDiv.appendChild(span);
-  console.log(span);
-    
-  }
-}
+  button.id = "close-" + idCount;
   
+  button.addEventListener('click', () => {
+    const task = document.querySelector(`#${button.id}`).parentElement
+    task.remove()
+  })
+  
+  button.appendChild(closeSymbol);
+  newDiv.appendChild(button);
+
+  taskListInput.value = ''
+}
