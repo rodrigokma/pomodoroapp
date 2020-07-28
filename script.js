@@ -196,7 +196,7 @@ function taskEvent(){
   span.id = "close-" + idCount;
   span.appendChild(closeSymbol);
   newDiv.appendChild(span);
-  // console.log(span);
+  console.log(span);
     
   }
 }
