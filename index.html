@@ -1,59 +1,48 @@
 <html>
-<head>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="STYLE.css">
-</head>
-<body>
-  <div class="column">
-    <div class="title">
-      <p>Pomodoro</p>
-    </div>
-
-    <div class="row">
-      <div class="buttons">
-        <button class="start-button" id="timer-start-button">Start</button>
-        <button class="pause-button" id="timer-pause-button">Pause</button>
-        <button class="restart-button" id="timer-restart-button">Restart</button>
-      </div>
-
-      <div class="timers">
-        <div class="timer-display">
-          <p class="timer-display-minutes" id="timer-display-minutes">25</p>
-          <p>:</p>
-          <p class="timer-display-seconds" id="timer-display-seconds">00</p>
+    <head>
+      <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="STYLE.css">
+    </head>
+    <body>
+        <div class="column">
+            <div class="title">
+                <p>Pomodoro</p>
+            </div>
+        <div class="row">
+            <div class="buttons">
+                <button class="start-button" id="timer-start-button">Start</button>
+                <button class="pause-button" id="timer-pause-button">Pause</button>
+                <button class="restart-button" id="timer-restart-button">Restart</button>
+            </div>
+            <div class="timers">
+                <div class="timer-display">
+                <p class="timer-display-minutes" id="timer-display-minutes">25</p>
+                <p>:</p>
+                <p class="timer-display-seconds" id="timer-display-seconds">00</p>
+                </div>
+                <div class="timer-display-bar">
+                    <p class="display-bar" id="timer-bar"></p>
+                </div>
+                <div class="break-display">
+                    <p class="break-display-minutes" id="break-display-minutes">05</p>
+                    <p>:</p>
+                    <p class="break-display-seconds" id="break-display-seconds">00</p>
+                </div>
+                <div class="break-display-bar">
+                    <p class="break-bar" id="break-bar"></p>
+                </div>
+            </div>
+            <div class="check-boxes" id="checkbox">
+                <p class="checkbox" id="checkbox-1 checkbox">First round!</p>
+                <p class="checkbox" id="checkbox-2 checkbox">Second round!</p>
+                <p class="checkbox" id="checkbox-3 checkbox">Third round!</p>
+                <p class="checkbox" id="checkbox-4 checkbox">Final round!</p>
+            </div>
+          </div>
         </div>
-
-        <div class="timer-display-bar">
-          <p class="display-bar" id="timer-bar"></p>
-        </div>
-
-        <div class="break-display">
-          <p class="break-display-minutes" id="break-display-minutes">05</p>
-          <p>:</p>
-          <p class="break-display-seconds" id="break-display-seconds">00</p>
-        </div>
-
-        <div class="break-display-bar">
-          <p class="break-bar" id="break-bar"></p>
-        </div>
-      </div>
-      
-      <div class="check-boxes" id="checkbox">
-        <p class="checkbox" id="checkbox-1 checkbox">First round!</p>
-        <p class="checkbox" id="checkbox-2 checkbox">Second round!</p>
-        <p class="checkbox" id="checkbox-3 checkbox">Third round!</p>
-        <p class="checkbox" id="checkbox-4 checkbox">Final round!</p>
-      </div>
-    </div>
-
-    <div id="task-list-div">
-      <p class="task-list-title">Task List<p>
-      <input type="text" id="new-task" placeholder="New task"></input> 
-      <input type="submit" value="Add" id="add-button">
-      <div id="task-list-above"></div>
-    </div>
-  </div>
-</body>
-<script src="script.js"></script>
+       
+        
+    </body>
+    <script src="script.js"></script>
 </html>
