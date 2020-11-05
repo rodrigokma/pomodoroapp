@@ -16,8 +16,6 @@ const checkboxTwo = document.getElementById("checkbox-2 checkbox");
 const checkboxThree = document.getElementById("checkbox-3 checkbox");
 const checkboxFour = document.getElementById("checkbox-4 checkbox");
 
-const taskListAdd = document.getElementById("add-button");
-
 let seconds = 00;
 let minutes = 00;
 let secondsBreak = 00;
@@ -28,9 +26,22 @@ let running;
 let paused;
 const checkSymbol = "&#10003;";
 const colorRed = "#953B3B";
-let idCount = 00;
 
-startTimer.addEventListener("click", function stopWatch() {
+startTimer.addEventListener("click", stopWatch);
+pauseTimer.addEventListener("click", pause);
+restartTimer.addEventListener("click", restart);
+
+function pause() {
+  if (!paused) {
+    clearInterval(stopWatchFunction);
+    timerBar.style.animationPlayState = "paused";
+    breakBar.style.animationPlayState = "paused";
+    paused = true;
+    running = false;
+  }
+};
+
+function stopWatch() {
   stopWatchTimer = stopWatch;
 
   if (!running) {
@@ -38,7 +49,7 @@ startTimer.addEventListener("click", function stopWatch() {
     running = true;
     paused = false;
   }
-});
+};
 
 function stopWatchCounter() {
   running = true;
@@ -120,20 +131,9 @@ function stopWatchCounter() {
       alert("Now take a 15 minutes break. When ready, press restart!");
     }
   }
-}
+};
 
-
-pauseTimer.addEventListener("click", function () {
-  if (!paused) {
-    clearInterval(stopWatchFunction);
-    timerBar.style.animationPlayState = "paused";
-    breakBar.style.animationPlayState = "paused";
-    paused = true;
-    running = false;
-  }
-});
-
-restartTimer.addEventListener("click", function () {
+function restart() {
   seconds = 00;
   minutes = 00;
   secondsBreak = 00;
@@ -145,13 +145,7 @@ restartTimer.addEventListener("click", function () {
   breakBar.style.animation = "load-restart 0s linear forwards";
   running = false;
   paused = true;
-});
-
-taskListAdd.addEventListener("click", function () {
-  taskEvent();
-  
-
-});
+};
 
 function clearBoxes(){
   checkboxOne.innerHTML = "First round!";
@@ -174,34 +168,3 @@ function initialTimer(){
   timerDisplayMin.innerHTML = "25";
   timerDisplaySec.innerHTML = "00";
 };
-
-function taskEvent(){
-  const parentTaskDiv = document.getElementById("task-list-div");
-  const taskListInput = document.getElementById("new-task");
-  
-  if(taskListInput.value === ""){
-    alert("You must write a task!")
-    return
-  }
- 
-  idCount += 1;
-  const newDiv = document.createElement("li"); 
-  const newTask = document.createTextNode(taskListInput.value);
-  const taskDiv = document.getElementById("task-list-above");
-  taskDiv.appendChild(newDiv);
-  newDiv.appendChild(newTask);
-
-  const button = document.createElement("button");
-  const closeSymbol = document.createTextNode(" x ");
-  button.id = "close-" + idCount;
-  
-  button.addEventListener('click', () => {
-    const task = document.querySelector(`#${button.id}`).parentElement
-    task.remove()
-  })
-  
-  button.appendChild(closeSymbol);
-  newDiv.appendChild(button);
-
-  taskListInput.value = ''
-}
